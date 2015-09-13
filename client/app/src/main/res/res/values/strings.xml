@@ -1,14 +1,15 @@
 <resources>
-    <string name="app_name">Spender</string>
+    <string name="app_name">CriminalIntent</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="crime_title_hint">Enter a title for the count.</string>
+    <string name="crime_title_hint">Enter a title for the crime,</string>
     <string name="crime_title_label">Title.</string>
     <string name="crime_details_label">Details.</string>
     <string name="crime_solved_label">Solved?</string>
-    <string name="counts_title">counts</string>
-    <string name="new_crime">New count</string>
+    <string name="crimes_title">crimes</string>
+    <string name="data_picket_title">Data of crime:</string>
+    <string name="new_crime">New crime</string>
     <string name="show_subtitle">Show subtitle</string>
     <string name="hide_subtitle">Hide subtitle</string>
     <string name="subtitle">If you see something, say something.</string>
