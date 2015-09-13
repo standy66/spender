@@ -82,7 +82,7 @@ public class CountListFragment extends ListFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.fragment_crime_list, menu);
+        inflater.inflate(R.menu.fragment_count_list, menu);
         MenuItem showSubtitle = menu.findItem(R.id.menu_item_show_subtitle);
         if (mSubtitleVisible && showSubtitle != null) {
             showSubtitle.setTitle(R.string.hide_subtitle);
@@ -138,7 +138,6 @@ public class CountListFragment extends ListFragment {
         return super.onContextItemSelected(item);
     }
 
-    @TargetApi(11)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View v = super.onCreateView(inflater, parent, savedInstanceState);
@@ -146,11 +145,7 @@ public class CountListFragment extends ListFragment {
             getActivity().getActionBar().setSubtitle(R.string.subtitle);
         }
         ListView listView = (ListView) v.findViewById(android.R.id.list);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-        } else {
-            registerForContextMenu(listView);
-        }
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         return v;
     }
 

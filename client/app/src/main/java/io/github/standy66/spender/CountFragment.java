@@ -64,9 +64,9 @@ public class CountFragment extends android.support.v4.app.Fragment {
         });
         mTitleField.setText(mCount.getTitle());
 
-        if (NavUtils.getParentActivityName(getActivity()) != null) {
+        /*if (NavUtils.getParentActivityName(getActivity()) != null) {
             getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        }*/
         return v;
     }
 
