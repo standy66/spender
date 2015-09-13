@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/crime_title_label"
+        android:text="@string/bank_name"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
         style="?android:listSeparatorTextViewStyle" />
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/crime_details_label"
+        android:text="@string/balance"
         android:id="@+id/textView2"
         android:layout_gravity="center_horizontal"
         style="?android:listSeparatorTextViewStyle" />
