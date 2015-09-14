@@ -73,8 +73,6 @@ public class CountListFragment extends ListFragment {
             titleTextView.setText(count.getTitle());
             TextView textView = (TextView) convertView.findViewById(R.id.list_item_crime_dataTextView);
             textView.setText(count.getBalance().toString());
-            CheckBox solvedCheckBox = (CheckBox) convertView.findViewById(R.id.list_item_crime_solvedCheckBox);
-            solvedCheckBox.setChecked(count.isSolved());
             return convertView;
         }
     }
