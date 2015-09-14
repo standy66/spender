@@ -27,14 +27,6 @@ public class Count {
         this.mBalance = mBalance;
     }
 
-    public boolean isSolved() {
-        return mSolved;
-    }
-
-    public void setSolved(boolean mSolved) {
-        this.mSolved = mSolved;
-    }
-
 
     public Count() {
         mId = UUID.randomUUID();
@@ -63,10 +55,6 @@ public class Count {
     @Override
     public String toString() {
         return mTitle;
-    }
-
-    public void setDouble(Double Double) {
-        this.mBalance = Double;
     }
 
     public JSONObject toJSON() throws JSONException {

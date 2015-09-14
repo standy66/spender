@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,7 +34,7 @@ public class CountListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         getActivity().setTitle(R.string.counts_title);
-        mCounts = CountLab.get(getActivity()).getCrimes();
+        mCounts = CountLab.get(getActivity()).getCounts();
         ArrayAdapter<Count> adapter = new CountAdapter(mCounts);
         setListAdapter(adapter);
         setRetainInstance(true);
@@ -92,7 +91,7 @@ public class CountListFragment extends ListFragment {
         switch (item.getItemId()) {
             case R.id.menu_item_new_count: {
                 Count count = new Count();
-                CountLab.get(getActivity()).addCrime(count);
+                CountLab.get(getActivity()).addCount(count);
                 Intent intent = new Intent(getActivity(), CountPagerActivity.class);
                 intent.putExtra(CountFragment.EXTRA_COUNT_ID, count.getId());
                 startActivityForResult(intent, 0);
@@ -128,7 +127,7 @@ public class CountListFragment extends ListFragment {
 
         switch (item.getItemId()) {
             case R.id.menu_item_delete_count: {
-                CountLab.get(getActivity()).deleteCrime(count);
+                CountLab.get(getActivity()).deleteCount(count);
                 adapter.notifyDataSetChanged();
                 return true;
             }

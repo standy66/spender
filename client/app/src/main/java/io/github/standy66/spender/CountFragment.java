@@ -1,8 +1,6 @@
 package io.github.standy66.spender;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -12,12 +10,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -32,14 +26,13 @@ public class CountFragment extends android.support.v4.app.Fragment {
 
     private Count mCount;
     private EditText mTitleField;
-    private Button mDataButton;
-    private CheckBox mSolvedCheckBox;
+    private EditText mBalanceField;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         UUID crimeId = (UUID) getArguments().getSerializable(EXTRA_COUNT_ID);
-        mCount = CountLab.get(getActivity()).getCrime(crimeId);
+        mCount = CountLab.get(getActivity()).getCount(crimeId);
     }
 
     @Override
@@ -49,7 +42,9 @@ public class CountFragment extends android.support.v4.app.Fragment {
         mTitleField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                mCount.setTitle(s.toString());
+                if (s.length() != 0) {
+                    mCount.setTitle(s.toString());
+                }
             }
 
             @Override
@@ -63,6 +58,24 @@ public class CountFragment extends android.support.v4.app.Fragment {
             }
         });
         mTitleField.setText(mCount.getTitle());
+
+        mBalanceField = (EditText) v.findViewById(R.id.count_balance_field);
+        mBalanceField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() != 0) {
+                    mCount.setBalance(Double.valueOf(s.toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
 
         /*if (NavUtils.getParentActivityName(getActivity()) != null) {
             getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -96,6 +109,6 @@ public class CountFragment extends android.support.v4.app.Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        CountLab.get(getActivity()).saveCrimes();
+        CountLab.get(getActivity()).saveCount();
     }
 }

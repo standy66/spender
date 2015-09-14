@@ -30,7 +30,7 @@ public class CountIntentJSONSerializer {
         this.mFileName = mFileName;
     }
 
-    public void saveCrimes(ArrayList<Count> counts) throws IOException {
+    public void saveCount(ArrayList<Count> counts) throws IOException {
         JSONArray jsonArray = new JSONArray();
         for (Count count : counts) {
             try {

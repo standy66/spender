@@ -40,11 +40,11 @@ public class CountLab {
         }
     }
 
-    public ArrayList<Count> getCrimes() {
+    public ArrayList<Count> getCounts() {
         return mCounts;
     }
 
-    public Count getCrime(UUID id) {
+    public Count getCount(UUID id) {
         for (Count count : mCounts) {
             if (count.getId().equals(id)) {
                 return count;
@@ -53,21 +53,21 @@ public class CountLab {
         return null;
     }
 
-    public void addCrime(Count count) {
+    public void addCount(Count count) {
         mCounts.add(count);
     }
 
-    public void deleteCrime(Count count) {
+    public void deleteCount(Count count) {
         mCounts.remove(count);
     }
 
-    public boolean saveCrimes() {
+    public boolean saveCount() {
         try {
-            mSerializer.saveCrimes(mCounts);
-            Log.d(TAG, "success saved crimes");
+            mSerializer.saveCount(mCounts);
+            Log.d(TAG, "success saved counts");
             return true;
         } catch (IOException e) {
-            Log.e(TAG, "Error saving crimes:", e);
+            Log.e(TAG, "Error saving counts:", e);
             return false;
         }
     }

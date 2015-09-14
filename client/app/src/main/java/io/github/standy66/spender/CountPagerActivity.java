@@ -23,7 +23,7 @@ public class CountPagerActivity extends ActionBarActivity {
         mViewPager = new ViewPager(this);
         mViewPager.setId(R.id.viewPager);
         setContentView(mViewPager);
-        mCounts = CountLab.get(this).getCrimes();
+        mCounts = CountLab.get(this).getCounts();
         android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fm) {
             @Override
